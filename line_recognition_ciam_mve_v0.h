@@ -23,7 +23,7 @@ uint16_t line_recognition_ciam(char inputSring[]);
  * "ch_off"   - turn off                         return 0b1000 0000 0000 0000
  * "get_ch_c" - send current value               return 0b1000 0000 0000 0010
  * "get_ch_v" - send voltage value               return 0b1000 0000 0000 0100
-
+ * "JKF2dwsk" - in all other cases               return 0xFFFF    
  */
 
 #endif /* INC_LINE_RECOGNITION_CIAM_MVE_V0_H_ */
