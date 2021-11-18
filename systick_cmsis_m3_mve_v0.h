@@ -3,10 +3,12 @@
  *
  *  Created on: Jul 19, 2021
  *      Author: MVE
- *      IN MAIN YOU MUST write: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- *      SystemCoreClockUpdate();
-		SysTick_Config(SystemCoreClock/1000); // 'prescaler' of SysTick for 1 ms
- *
+ *      !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ *      IN MAIN.C YOU MUST WRITE: 
+ *      volatile uint32_t msTicks;      // global var
+ *		SystemCoreClockUpdate();
+ *      SysTick_Config(SystemCoreClock/1000); // 'prescaler' of SysTick for 1 ms
+ *		!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  */
 
 #ifndef SYSTICK_CMSIS_M3_MVE_V0_H
@@ -14,9 +16,9 @@
 
 #include "main.h"
 
-volatile uint32_t msTicks;
+extern volatile uint32_t msTicks;
 
 void SysTick_Handler(void);
-void Delay(uint32_t dlyTicks);
+void mve_delay(uint32_t dlyTicks);
 
 #endif /* SYSTICK_CMSIS_M3_MVE_V0_H */

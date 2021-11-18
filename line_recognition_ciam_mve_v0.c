@@ -6,7 +6,7 @@
  */
 #include "line_recognition_ciam_mve_v0.h"
 
-uint16_t line_recognition_ciam(char inputSring[]){
+uint16_t line_recognition_ciam(volatile uint8_t inputSring[]){
 	if (inputSring[0] == 's') {                         /*SET BRANCH*/
 		if (inputSring[1] == 'c') {						/*CURRENT SET BRANCH*/
 			float current = atof(&inputSring[3]);
@@ -14,7 +14,7 @@ uint16_t line_recognition_ciam(char inputSring[]){
 		}
 		if (inputSring[1] == 'v') {						/*VOLTAGE SET BRANCH*/
 			uint16_t voltage = atoi(&inputSring[3]);
-			return (voltage);
+			return (voltage+0x4000);
 		}
 	}
 	if (!strcmp("ch_on", inputSring)) 					/*TURN ON BRANCH*/
